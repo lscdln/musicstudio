@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/hourglass.png">
+    <title>Booking Form</title>
+     
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background: url('./images/music-room4.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            margin: 0;
+             
+        }
+        .booking-form {
+            font-weight: 400;
+            letter-spacing: 1px;
+            background: rgba(48, 39, 39, 0.15);  
+            backdrop-filter: blur(10px); 
+            font-family: "Poppins", sans-serif;
+            border-radius: 12px;  
+            box-shadow: 10px 15px 20px rgba(0, 0, 0, 0.1);  
+             
+            width: 100%;
+            max-width: 1600px;
+            display:grid ;
+            grid-template-columns:60% 40%;
+            margin:100px;
+            
+        }
+
+        .container-time{
+            background-color: rgba(0, 0, 0, .95);
+            color: white;
+            padding: 50px;
+            outline:3px dashed #9d6413 ;
+            outline-offset: -30px;
+            display: grid;
+            align-items: center;
+          
+     
+        }
+
+        .container-time .Days{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 30px;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .heading{
+            font-size: 50px;
+            text-transform: uppercase;
+            font-family: "Poppins", sans-serif;
+            text-align: center;
+            margin: opx 0px;
+            margin-bottom: 0px;
+        }
+
+        .par {
+            margin-top: 0px;
+            font-size: 20px;
+            font-family: "Poppins", sans-serif;
+            text-align: center;
+             
+        }
+ /*FORM*/
+        .container-form {
+            padding: 20px 20px;
+            margin: 0 auto;
+            justify-items: center;
+            align-items: center;
+        }
+
+        .container-form h2 {
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+
+        form {
+            display: grid;
+            grid-row-gap: 20px;
+        }
+
+        .form-group {
+            display: grid;
+            grid-template-columns: 1fr;  
+            grid-gap: 10px; 
+            align-items: center;  
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: white;
+            margin-bottom: 5px; 
+            display: block;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;  
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; 
+        }
+
+        .name-fields {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .name-fields input {
+            width: 32%;  
+        }
+
+        .form-group .cancel-button,
+        .form-group input[type="submit"] {
+            background-color: #000000;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            width: 120px;
+            margin: 0 auto;
+            box-sizing: border-box;
+            font-size: 14px;
+            transition: 0.4s;
+        }
+
+        .form-group .cancel-button {
+            background-color: #04000000;
+            margin-top: 8px;
+        }
+
+        .form-group .cancel-button:hover {
+            background-color: #ffffff;
+            color: black;
+        }
+
+        .form-group input[type="submit"]:hover {
+            background-color: #ffffff;
+            color: black;
+        }
+
+        .note {
+            justify-content: center;
+            align-items: center;
+            font-size: 0.85em;
+            color: #ffffff;
+            margin-top: 15px;
+            text-align: center;  
+        }
+
+        .form-group select {
+            background-color: #fff;
+        }
+
+        .form-group .required {
+            color: #ff0000;
+        }
+
+ 
+    </style>
+</head>
+
+
+<body>
+
+<!--Container of Form-->
+<div class="booking-form">
+
+    <!--SCHEDULE-->
+
+    <div class="container-time">
+        <!--Time Open-->
+        <h2 class="heading">Time Open</h2>
+        <p class="par">*Prices Starts at 100Php per hour!</p>
+        <!--MONDAY-->
+        <div class="Days">
+            <div class="day">
+                <h3 class="heading-days">Monday</h3>
+                <p> 
+                    String: 8:00 AM-10:00AM <br>
+                    Keyboard: 10:00 AM-12:00 PM <br>
+                    Lunch Break: 12:00 PM-1:00 PM<br>
+                    Wind: 1:00 PM- 3:00 PM<br>
+                    Percussion: 3:00 PM - 5:00 PM<br>
+                    Electronic: 5:00 PM - 7:00 PM</p>
+            
+            </div>
+           
+
+        <!--TUESDAY-->
+        <div class="day">
+            <h3 class="heading-days">Tuesday</h3>
+            <p> 
+                Wind: 8:00 AM-10:00AM<br>
+                Electronic: 10:00 AM-12:00 PM<br>
+                Lunch Break: 12:00 PM-1:00 PM<br>
+                Percussion: 1:00 PM- 3:00 PM<br>
+                String: 3:00 PM - 5:00 PM<br>
+                Keyboard: 5:00 PM - 7:00 PM</p>
+        </div>
+           
+         
+         
+         <!--WEDNESDAY-->
+          <div class="day">
+            <h3 class="heading-days">Wednesday</h3>
+            <p> 
+                Percussion: 8:00 AM-10:00AM<br>
+                String: 10:00 AM-12:00 PM<br>
+                Lunch Break: 12:00 PM-1:00 PM<br>
+                Keyboard: 1:00 PM- 3:00 PM<br>
+                Wind: 3:00 PM - 5:00 PM<br>
+                Electronic: 5:00 PM - 7:00 PM</p>
+          </div>
+            
+         
+
+        <!--THURSDAY-->
+         <div class="day">
+            <h3 class="heading-days">Thursday</h3>
+            <p> 
+                Electronic: 8:00 AM-10:00AM<br>
+                Percussion: 10:00 AM-12:00 PM<br>
+                Lunch Break: 12:00 PM-1:00 PM<br>
+                String: 1:00 PM- 3:00 PM<br>
+                Keyboard: 3:00 PM - 5:00 PM<br>
+                Wind: 5:00 PM - 7:00 PM
+                </p>
+         </div>
+            
+         
+
+          <!--FRIDAY-->
+           <div class="day">
+            <h3 class="heading-days">Friday</h3>
+            <p> 
+                Keyboard: 8:00 AM-10:00AM<br>
+                Wind: 10:00 AM-12:00 PM<br>
+                Lunch Break: 12:00 PM-1:00 PM<br>
+                Electronic: 1:00 PM- 3:00 PM<br>
+                Percussion: 3:00 PM - 5:00 PM<br>
+                String: 5:00 PM - 7:00 PM</p>
+           </div>
+             
+         
+        <!--SATURDAY-->
+         <div class="day">
+            <h3 class="heading-days">Saturday</h3>
+            <p> 
+                String: 8:00 AM-10:00AM<br>
+                Keyboard: 10:00 AM-12:00 PM<br>
+                Lunch Break: 12:00 PM-1:00 PM<br>
+                Wind: 1:00 PM- 3:00 PM<br>
+                Electronic: 3:00 PM - 5:00 PM<br>
+                Percussion: 5:00 PM - 7:00 PM</p>
+         
+         </div>
+            
+         
+    </div>
+         
+
+    </div>
+
+    <!--FORM-->
+    <div class="container-form">
+        <h2>Booking Form</h2><hr>
+        <form id="bookingForm">
+            <div class="form-group" id="name">
+                <label for="name">Name <span class="required">*</span></label>
+                <div class="name-field">
+                    <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+                    <input type="text" id="middleName" name="middleName" placeholder="Middle Name">
+                    <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
+                </div>
+              
+            </div>
+    
+            <div class="form-group">
+                <label for="email">Email Address <span class="required">*</span></label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number">
+            </div>
+    
+            <div class="form-group">
+                <label for="instrument">Select Instrument <span class="required">*</span></label>
+                <select id="instrument" name="instrument">
+                    <option value="">-- Please Choose --</option>
+                    <option value="string">String</option>
+                    <option value="wind">Wind</option>
+                    <option value="percussion">Percussion</option>
+                    <option value="keyboard">Keyboard</option>
+                    <option value="electronic">Electronic</option>
+                </select>
+            </div>
+    
+            <div class="form-group" id="sub-instrument" style="display: none;">
+                <label for="subInstrument">Select Specific Instrument</label>
+                <select id="subInstrument" name="subInstrument"></select>
+            </div>
+    
+            <div class="form-group">
+                <label for="instructor">Select Instructor <span class="required">*</span></label>
+                <select id="instructor" name="instructor">
+                    <option value="">-- Please Choose --</option>
+                    <option value="Jelai Batumbakal">Jelai Batumbakal</option>
+                    <option value="Kate Zeno">Kate Zeno</option>
+                    <option value="Yayay Dimagiba">Yayay Dimagiba</option>
+                    <option value="Joy Esgan">Joy Esgan</option>
+                    <option value="Boo Rhatjuts">Boo Rhatjuts</option>
+                </select>
+            </div>
+    
+            <div class="form-group">
+                <label for="date">Preferred Date <span class="required">*</span></label>
+                <input type="date" id="date" name="date" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="message">Additional Notes</label>
+                <textarea id="message" name="message" rows="4" placeholder="Enter any additional notes"></textarea>
+            </div>
+    
+            <div class="form-group button-container">
+                <input type="submit" value="Book Now">
+                <a href="landingpage.html" class="cancel-button">Cancel</a>
+            </div>
+    
+            <p class="note">We will email you to confirm your appointment.</p>
+        </form>
+    </div>
+     
+</div>
+
+<!--JAVASCRIPT-->
+<script src="form.js"></script>
+<script>
+    const instrumentDropdown = document.getElementById('instrument');
+    const subInstrumentDropdown = document.getElementById('subInstrument');
+    const subInstrumentGroup = document.getElementById('sub-instrument');
+
+    const subInstruments = {
+        string: ['-- Please Choose --', 'Violin', 'Guitar', 'Double Bass'],
+        wind: ['-- Please Choose --', 'Flute', 'Clarinet', 'Trumpet'],
+        percussion: ['-- Please Choose --', 'Snare Drum', 'Bass Drum', 'Xylophone'],
+        keyboard: ['-- Please Choose --', 'Piano', 'Organ', 'Harpsichord'],
+        electronic: ['-- Please Choose --', 'Electric Violin', 'Electric Guitar', 'Synthesizer']
+    };
+
+    instrumentDropdown.addEventListener('change', () => {
+        const selectedInstrument = instrumentDropdown.value;
+
+        if (subInstruments[selectedInstrument]) {
+            subInstrumentDropdown.innerHTML = subInstruments[selectedInstrument]
+                .map(item => `<option value="${item.toLowerCase().replace(/ /g, '-')}"">${item}</option>`)
+                .join('');
+            subInstrumentGroup.style.display = 'block';
+        } else {
+            subInstrumentGroup.style.display = 'none';
+        }
+    });
+</script>
+</body>
+</html>

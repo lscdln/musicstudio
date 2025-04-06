@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="images/hourglass.png">
+    <title>Instructor Profiles</title>
+    <style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  --primary-color: #1D1915;
+  --secondary-color: #e8e8e8;
+  --text-dark:#1D1915;
+  --text-light: #1D1915;
+  --white: #ffffff;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--secondary-color);
+  background: #ccc url("./images/music.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+
+.section__container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.section__container h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.section__container h1 {
+  position: relative;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.section__container h1::after {
+  position: absolute;
+  content: "";
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  height: 2px;
+  width: 5rem;
+  background-color: var(--primary-color);
+}
+
+.slider {
+    display: flex;
+  overflow: hidden;  
+  scroll-snap-type: x mandatory;  
+  scroll-behavior: smooth;  
+}
+
+.section__grid {
+  display: block; 
+  position: relative;
+}
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+
+.section__card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 5rem 2rem 2rem;
+  background-color: #C1AA90;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+  flex: 0 0 80%;  
+  scroll-snap-align: center;  
+  margin-right: 5rem;  
+}
+
+.section__card::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  width: 35%;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  background-color: #1D1915;
+  z-index: -1;
+  transition: 0.5s;
+}
+
+
+
+.section__card span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1rem;
+  font-size: 3rem;
+  color: var(--white);
+}
+
+
+
+.section__card h4 {
+  margin-top: 4rem;
+  margin-bottom: 0px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  transition: 0.3s;
+}
+
+.section__card p {
+  margin-bottom: 2rem;
+  color: var(--text-light);
+  transition: 0.3s;
+  font-size: 20px;
+}
+
+.section__card img {
+  width: 200px;
+  height: 200px; 
+  border-radius: 50%; 
+  border: 2px solid var(--primary-color);
+  object-fit:cover; 
+  transition: 0.3s;
+}
+
+
+.section__card h5 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  transition: 0.3s;
+  margin-bottom: 10px;
+}
+
+.section__card h6 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-light);
+  transition: 0.3s;
+}
+
+.section__card:hover::before {
+  width: 400%;
+}
+
+.section__card:hover :is(h4, h5) {
+  color: var(--white);
+}
+
+.section__card:hover :is(p, h6) {
+  color: var(--secondary-color);
+}
+
+.section__card:hover img {
+  border-color: var(--white);
+}
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: var(--primary-color);
+  background: var(--white);
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  padding: 0.5rem;
+  cursor: pointer;
+  z-index: 10;  
+}
+
+.arrow-left {
+  left: -2rem;  
+}
+
+.arrow-right {
+  right: -2rem;  
+}
+.back-button {
+        margin-bottom: 1.5rem;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--text-dark);
+        background-color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        position: absolute;  
+        left: 2rem;  
+      }
+
+      .back-button:hover {
+        background-color: #1D1915;;  
+        color: white;;
+      }
+
+      
+
+    </style>
+  </head>
+  <body>
+
+    <!--INSTRUCTORS-->
+    <section class="section__container">
+      <button class="back-button" onclick="window.history.back()">Back</button> 
+      <h2>Instructors</h2>
+      <h1>Meet Our Experts</h1>
+      <div class="section__grid">
+        <div class="slider">
+        <div class="section__card">
+            <span><i class="ri-music-fill"></i></span>
+          <span><i class="ri-music-fill"></i></span>
+          <img src="images/jelai.jfif" alt="Jelai Batumbakal" />
+          
+          <h4>Jelai Batumbakal</h4>
+          <h5>Music Instructor</h5>
+          <p>
+            Jelai specializes in string instruments, bringing a deep understanding of violin, guitar, and double bass. While her expertise lies in strings, she also teaches wind, percussion, keyboard, and electronic music.
+          </p>
+          <p><strong>Experience:</strong> 10+ years</p>
+          <p><strong>Personality:</strong> Warm, encouraging, and patient. Jelai fosters a positive and inclusive learning environment for students of all skill levels.</p>
+          
+          <h6>"Music is the voice of the soul. Every note tells a story, and every student has a unique melody."</h6>
+        </div>
+        <div class="section__card">
+            <span><i class="ri-music-fill"></i></span>
+            <img src="images/kate.jpg" alt="Jelai Batumbakal" />
+            <h4>Kate Zeno</h4>
+            <h5>Music Instructor</h5>
+            <p>
+              Kate has a passion for wind instruments, with expertise in flute, trumpet, and clarinet. While her main focus is wind instruments, she also teaches string, percussion, keyboard, and electronic music.
+            </p>
+            <p><strong>Experience:</strong> 10+ years</p>
+            <p><strong>Personality:</strong> Energetic, detail-oriented, and enthusiastic. Kate is known for her commitment to excellence and her ability to inspire students to reach their fullest potential.</p>
+         
+            
+            <h6>"Breath is the music’s heart. Without it, there can be no soul in the sound."</h6>
+          </div>
+          <div class="section__card">
+            <span><i class="ri-music-fill"></i></span>
+            <img src="images/yayay.jpg" alt="Yayay Dimagiba" />
+            <h4>Yayay Dimagiba</h4>
+            <h5>Music Instructor</h5>
+            <p>
+              Yayay’s specialty is percussion, including snare drum, bass drum, and xylophone. She also teaches string, wind, keyboard, and electronic music, helping students explore rhythm across various genres.
+            </p>
+            <p><strong>Experience:</strong> 10+ years</p>
+            <p><strong>Personality:</strong> Creative, spirited, and driven. Yayay is passionate about rhythm and has a unique ability to ignite excitement in her students.</p>
+            
+            <h6>"Rhythm is life. Without rhythm, there is no movement, no pulse."</h6>
+          </div>
+          <div class="section__card">
+            <span><i class="ri-music-fill"></i></span>
+            <img src="images/joy.jpg" alt="Joy Esgan" />
+            <h4>Joy Esgan</h4>
+            <h5>Music Instructor</h5>
+            <p>
+              Joy is an expert in keyboard instruments, with a strong background in piano, organ, and harpsichord. She also teaches string, wind, percussion, and electronic music.
+            </p>
+            <p><strong>Experience:</strong> 10+ years</p>
+            <p><strong>Personality:</strong> Patient, attentive, and systematic. Joy is highly methodical in her teaching approach, ensuring that her students master the fundamentals before moving on to more complex concepts.</p>
+            
+            <h6>"The keyboard is an endless world. Every key unlocks a new possibility."</h6>
+          </div>
+          <div class="section__card">
+            <span><i class="ri-music-fill"></i></span>
+            <img src="images/boo.jfif" alt="Boo Rhatjuts" />
+            <h4>Ale Laday</h4>
+            <h5>Music Instructor</h5>
+            <p>
+              Boo specializes in electronic instruments such as electric violin, electric guitar, and synthesizer. Though focused on electronic music, he also teaches string, wind, percussion, and keyboard instruments.
+            </p>
+            <p><strong>Experience:</strong> 10+ years</p>
+            <p><strong>Personality:</strong> Innovative, forward-thinking, and technical. Boo is passionate about bridging the gap between traditional and modern musical styles.</p>
+            
+            <h6>"The future of music is where tradition meets technology. Embrace the evolution."</h6>
+          </div>
+          <div class="arrow arrow-left"><i class="ri-arrow-left-s-line"></i></div>
+          <div class="arrow arrow-right"><i class="ri-arrow-right-s-line"></i></div>
+      </div>
+   
+    </section>
+
+    <!--JAVASCRIPT-->
+    <script>
+const slider = document.querySelector('.slider');
+const arrowLeft = document.querySelector('.arrow-left');
+const arrowRight = document.querySelector('.arrow-right');
+
+let currentIndex = 0; 
+const cards = document.querySelectorAll('.section__card');
+const totalCards = cards.length;
+
+arrowLeft.addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    slider.scrollTo({
+      left: cards[currentIndex].offsetLeft,
+      behavior: 'smooth',
+    });
+  }
+});
+
+arrowRight.addEventListener('click', () => {
+  if (currentIndex < totalCards - 1) {
+    currentIndex++;
+    slider.scrollTo({
+      left: cards[currentIndex].offsetLeft,
+      behavior: 'smooth',
+    });
+  }
+});
+
+
+      </script>
+  </body>
+
+</html>

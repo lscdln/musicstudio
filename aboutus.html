@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <!-- Import Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* General styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* Background Video */
+        #BackgroundVideo {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            opacity: 0.8;
+        }
+
+        /* Main Container */
+        .about-container {
+    width: 100%;
+    max-width: 1400px; /* Increase max-width */
+    margin: 50px auto;
+    padding: 30px; /* Increase padding */
+}
+
+/* Section Styling */
+section {
+    background: #fff;
+    margin: 60px 0; /* Increase margin between sections */
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    padding: 40px; /* Increase padding */
+    transition: transform 0.5s ease;
+}
+
+        section:nth-child(even) {
+            flex-direction: row-reverse; /* Alternate alignment */
+        }
+
+        section:hover {
+            transform: scale(1.03);
+        }
+
+        /* Section Content */
+        .section-text {
+            flex: 1;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #6c4f30;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .section-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .section-image img {
+            width: 450px;
+            border-radius: 12px;
+            height: 350px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Location Container */
+        .location-container {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin-top: 50px;
+    text-align: center;
+    transition: transform 0.5s ease;
+}
+
+        .location-container:hover {
+            transform: scale(1.03);
+        }
+
+        iframe {
+            width: 100%;
+            height: 400px;
+            border: 0;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        /* Back Button */
+        .back-button {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .back-button a {
+            font-size: 1.5rem;
+            color: #fff;
+            background-color: #1d1610;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button a:hover {
+            background-color: #4e3b31;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            section {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+
+            section:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1.1rem;
+            }
+
+            iframe {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Video -->
+    <video id="BackgroundVideo" src="images/BH VID.mp4" autoplay muted loop></video>
+
+    <!-- About Page Container -->
+    <div class="about-container">
+
+        <!-- About Us Section -->
+        <section>
+            <div class="section-text">
+                <h2 class="section-title">About Us</h2>
+                <p>Blue Hour is a music studio inspired by the enchanting time of twilight, where creativity and inspiration flourish. With a serene environment and experienced instructors, we help musicians explore their talents and achieve their musical goals.</p>
+            </div>
+            <div class="section-image">
+                <img src="images/aboutsus.jpg" alt="About Us Image">
+            </div>
+        </section>
+
+        <!-- Our Mission Section -->
+        <section>
+            <div class="section-text">
+                <h2 class="section-title">Our Mission</h2>
+                <p>Our mission is to make high-quality music education accessible, convenient, and enjoyable for everyone. Whether you are a beginner or advanced musician, we are here to guide and inspire your journey.</p>
+            </div>
+            <div class="section-image">
+                <img src="images/mission.jpg" alt="Our Mission Image">
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section>
+            <div class="section-text">
+                <h2 class="section-title">Why Choose Us?</h2>
+                <p>We offer a team of passionate instructors, flexible learning options, and a nurturing environment where you can truly grow as a musician. Join Blue Hour Studio and start creating music that inspires.</p>
+            </div>
+            <div class="section-image">
+                <img src="images/choose.jpg" alt="Why Choose Us Image">
+            </div>
+        </section>
+
+        <!-- Location Section -->
+        <div class="location-container">
+            <h2 class="section-title">Our Location</h2>
+            <p>Find us at <strong>Matungao, Bulakan, Bulacan</strong>. Explore our studio and feel the creative atmosphere!</p>
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15445.476191644607!2d120.87866174442664!3d14.791938543319451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3396548973f4d53b%3A0x9e70410c4d2f4d9b!2sMatungao%2C%20Bulakan%2C%20Bulacan!5e0!3m2!1sen!2sph!4v1713260518373!5m2!1sen!2sph" 
+                allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <!-- Back Button -->
+    <div class="back-button">
+        <a href="landingpage.html">Back</a>
+    </div>
+</body>
+</html>

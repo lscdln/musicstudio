@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="images/hourglass.png">
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <title>BlueHour</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+      :root {
+        --text-dark: #171717;
+        --text-light: #e5e5e5;
+        --white: #ffffff;
+        --back-button-color: #f0f0f0;  
+      }
+
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+
+      .container {
+        min-height: 100vh;
+        background: #ccc url("./images/music.jpg");
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      .navbar {
+        width: 100%;
+        max-width: 420px;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+        background-color: transparent;
+      }
+
+      .navbar__item {
+        margin: 0 1rem;
+        font-size: 1.2rem;
+        color: var(--text-dark);
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 1rem;
+        transition: 0.3s;
+      }
+
+      .navbar__item:hover {
+        background-color: rgba(255, 255, 255, 0.3);  
+        color: var(--text-dark);
+      }
+
+      .login__form {
+        width: 100%;
+        max-width: 420px;
+        padding: 4rem 3rem;
+        margin: 1rem;
+        backdrop-filter: blur(8px);
+        border: 2px solid var(--white);
+        border-radius: 1.5rem;
+        animation: fadeIn 0.5s ease-in-out forwards;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .login__form h1 {
+        margin-bottom: 2rem;
+        font-size: 2rem;
+        font-weight: 500;
+        color: var(--white);
+        text-align: center;
+      }
+
+      .input__row {
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-bottom: 2px solid var(--white);
+      }
+
+      .input__group {
+        flex: 1;
+        position: relative;
+      }
+
+      .input__row span {
+        font-size: 1.25rem;
+        color: var(--white);
+      }
+
+      .input__group label {
+        position: absolute;
+        font-size: 1rem;
+        color: var(--white);
+        top: 0;
+        left: 0;
+        transition: 0.3s;
+        pointer-events: none;
+      }
+
+      .input__group input:not(:placeholder-shown) ~ label,
+      .input__group input:focus ~ label {
+        font-size: 0.7rem;
+        top: -1.25rem;
+      }
+
+      .input__group input {
+        width: 100%;
+        outline: none;
+        border: none;
+        font-size: 1.2rem;
+        color: var(--white);
+        background-color: transparent;
+      }
+
+      #password-eye {
+        cursor: pointer;
+      }
+
+      .action__btns {
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .remember__me {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .remember__me label {
+        font-size: 0.9rem;
+        color: var(--text-light);
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .remember__me input {
+        accent-color: var(--white);
+      }
+
+      .forgot__password {
+        text-decoration: none;
+        font-size: 0.9rem;
+        color: var(--text-light);
+        transition: 0.3s;
+      }
+
+      .forgot__password:hover {
+        color: var(--white);
+      }
+
+      .login__btn {
+        margin-bottom: 10px;
+        padding: 1rem;
+        width: 100%;
+        outline: none;
+        border: none;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        background-color: var(--white);
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .login__btn:hover {
+        background-color: var(--text-light);
+      }
+
+      .back__btn {
+        margin-bottom: 1.5rem;
+        padding: 1rem;
+        width: 100%;
+        outline: none;
+        border: none;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        background-color: rgb(155, 145, 145); 
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .back__btn:hover {
+        background-color: var(--text-light);  
+      }
+
+      .register {
+        color: var(--text-light);
+        text-align: center;
+      }
+
+      .register a {
+        text-decoration: none;
+        font-weight: 500;
+        color: var(--white);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div class="navbar__item" onclick="selectLogin('admin')">Admin</div>
+        <div class="navbar__item" onclick="selectLogin('instructor')">Instructor</div>
+      </div>
+      <form onsubmit="loginUser(); return false;" class="login__form">
+        <h1>Login</h1>
+        <div class="input__row">
+          <span><i class="ri-user-3-line"></i></span>
+          <div class="input__group">
+            <input id="userUsername" type="text" placeholder="" required />
+            <label for="userUsername">Username</label>
+          </div>
+        </div>
+        <div class="input__row">
+          <span><i class="ri-lock-2-line"></i></span>
+          <div class="input__group">
+            <input id="password" type="password" placeholder="" required />
+            <label for="password">Password</label>
+          </div>
+          <span id="password-eye"><i class="ri-eye-off-line"></i></span>
+        </div>
+        <button type="submit" class="login__btn">Login</button>
+        <!-- Back Button -->
+           <button type="button" class="back__btn" onclick="window.location.href='landingpage.html'">Back</button>
+              <div id="error-message" style="color: red; text-align: center;"></div>
+
+      </form>
+    </div>
+
+    <script>
+      const passwordBtn = document.getElementById("password-eye");
+      passwordBtn.addEventListener("click", () => {
+        const passwordInput = document.getElementById("password");
+        const icon = passwordBtn.querySelector("i");
+        const isVisible = icon.classList.contains("ri-eye-line");
+        passwordInput.type = isVisible ? "password" : "text";
+        icon.setAttribute(
+          "class",
+          isVisible ? "ri-eye-off-line" : "ri-eye-line"
+        );
+      });
+
+      const instructorCredentials = {
+        "Jelai": { password: "Batumbakal", redirect: "instructor1.html" },
+        "Kate": { password: "Zeno", redirect: "instructor2.html" },
+        "Yayay": { password: "Dimagiba", redirect: "instructor3.html" },
+        "Joy": { password: "Esgan", redirect: "instructor4.html" },
+        "Boo": { password: "Rhatjuts", redirect: "instructor5.html" }
+      };
+
+      let userType = "";
+
+      function selectLogin(type) {
+        userType = type;
+        document.querySelector("h1").textContent = `${type.charAt(0).toUpperCase() + type.slice(1)} Login`;
+        document.getElementById("userUsername").placeholder = "";  
+      }
+
+      function loginUser() {
+        const username = document.getElementById("userUsername").value;
+        const password = document.getElementById("password").value;
+
+        if (userType === "admin") {
+          // Admin credentials
+          const correctUsername = "BlueHour";
+          const correctPassword = "asulnaoras";
+          if (username === correctUsername && password === correctPassword) {
+            window.location.href = `database.html`;
+          } else {
+            document.getElementById("error-message").textContent = "Invalid username or password.";
+          }
+        } else if (userType === "instructor") {
+          // Check instructor credentials
+          if (instructorCredentials[username] && instructorCredentials[username].password === password) {
+            window.location.href = instructorCredentials[username].redirect;
+          } else {
+            document.getElementById("error-message").textContent = "Invalid username or password.";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
